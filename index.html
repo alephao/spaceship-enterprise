@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spaceship</title>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="dist/css/style.css"/>
+  </head>
+  <body>
+    <img id="imgpreloader" class="imgpreloader" src="src/img/top-closed.png" />
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div class="spaceship-container">
+      <div class="cockpit-container">
+        <div id="sonar-container" class="sonar-container">
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+          <div class="sonar-wave"></div>
+        </div>
+        <img class="spaceship-cockpit cockpit-closed" src="src/img/cockpit-module.png" data-spacesec="cockpit" data-title="Cockpit" data-body="Dats a cockpit"/>
+      </div>
+      <img class="spaceship-top" src="src/img/top-closed.png" data-spacesec="top" data-title="Deliver" data-body="Some cool text"/>
+      <img class="spaceship-mid" src="src/img/middle-closed.png" data-spacesec="middle" data-title="Design" data-body="Dats acoul tekst"/>
+      <img class="spaceship-bot" src="src/img/bottom-closed.png" data-spacesec="bottom" data-title="Explore" data-body="Dats a cool lorem ipsum"/>
+
+      <div id="spc-si-innovation" class="spc-si-item spc-si-innovation" data-spacepart="top" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
+      <div id="spc-si-innovation2" class="spc-si-item spc-si-innovation2" data-spacepart="top" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
+      <div id="spc-si-technology" class="spc-si-item spc-si-technology" data-spacepart="top" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
+      <div id="spc-si-technology2" class="spc-si-item spc-si-technology2" data-spacepart="top" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
+      <div id="spc-si-people" class="spc-si-item spc-si-people" data-spacepart="top" data-title="Develop the amazing in people" data-body="When you empower people to increase the rate at which they perform only value-adding work, you build their sense of autonomy, mastery and purpose."></div>
+      <div id="spc-si-process" class="spc-si-item spc-si-process" data-spacepart="top" data-title="Engineer seamless processes" data-body="What can you standardise and repeat? Who does it? When? With what aim? Asking these questions reliably is half of the answer—we help close the circle."></div>
+
+      <div id="spc-si-culture" class="spc-si-item spc-si-culture" data-spacepart="middle" data-title="Cultivate a winning culture" data-body="When you understand, codify and develop the shared assumptions and behaviours of your team, your people will learn to adapt to the external world and to work together energetically towards a common goal."></div>
+      <div id="spc-si-language" class="spc-si-item spc-si-language" data-spacepart="middle" data-title="Engage purposeful language" data-body="People are meaning-making machines, basing action on verbal, written, visual, aural and bodily cues. How you communicate plans and expectations makes all the difference in the world."></div>
+      <div id="spc-si-organisation" class="spc-si-item spc-si-organisation" data-spacepart="middle" data-title="Cleave to a requisite organisation" data-body="When you establish accountability and expectations at each level of work, your people can take ownership of their roles, with inspiring results for the whole team."></div>
+      <div id="spc-si-resources" class="spc-si-item spc-si-resources" data-spacepart="middle" data-title="Mindfully manage resources" data-body="How will you turn intention into reality, every time—on time and on budget? Here we define the human, material, information and financial resources required to do the work."></div>
+      <div id="spc-si-operations" class="spc-si-item spc-si-operations" data-spacepart="middle" data-title="Design systemic operations" data-body="We apply the Theory of Constraints to the way you work with your resources in and across time and space to achieve your organisational goal."></div>
+
+      <div id="spc-si-strategy" class="spc-si-item spc-si-strategy" data-spacepart="bottom" data-title="Strategy for every domain" data-body="How will your idea flow through the engine that powers your organisation? Each domain is affected, whether or not you make intentional changes. Through strategic planning, you align your system in each area and exert positive influences that maximise your return."></div>
+      <div id="spc-si-idea" class="spc-si-item spc-si-idea" data-spacepart="bottom" data-title="Turn your idea into innovation" data-body="Your goal is to create additional value and wealth by applying expertise and leverage to the core domains of your value-creation engine. Success starts with a good idea."></div>
+    </div>
+
+    <div id="hud" class="hud">
+      <h3 id="hud-title" class="hud-title"></h3>
+      <p id="hud-body" class="hud-body"></p>
+    </div>
+
+    <!-- <div class="the-space"></div> -->
+
+    <script type="text/javascript">
+      $(function() {
+        $('#imgpreloader').attr('src', 'src/img/top-closed.png');
+        $('#imgpreloader').attr('src', 'src/img/middle-closed.png');
+        $('#imgpreloader').attr('src', 'src/img/bottom-closed.png');
+        $('#imgpreloader').remove();
+
+        $('.spaceship-container > img').click(function(e) {
+            var el = $(this);
+            var elSrc = el.attr('src');
+
+            // if image have -open in its src, toggle to -closed and vice versa
+            if (elSrc.includes('-open')) {
+              var newSrc = elSrc.replace('-open', '-closed')
+              el.attr('src', newSrc);
+              var spacesec = el.data('spacesec');
+              $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
+                display: 'none'
+              });
+
+              if (el.hasClass('spaceship-top')) {
+                $('.sonar-container').stop();
+                $('.spaceship-cockpit').stop();
+                $('.sonar-container').clearQueue();
+                $('.spaceship-cockpit').clearQueue();
+
+                $('.sonar-container').fadeOut();
+                $('.spaceship-cockpit').hide();
+                // $('.cockpit-open').removeClass('cockpit-open').addClass('cockpit-closed');
+              }
+            } else if (elSrc.includes('-closed')) {
+              var newSrc = elSrc.replace('-closed', '-open');
+              el.attr('src', newSrc);
+              var spacesec = el.data('spacesec');
+              $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
+                display: 'block'
+              });
+
+              if (el.hasClass('spaceship-top')) {
+                $('.sonar-container').stop();
+                $('.spaceship-cockpit').stop();
+                $('.sonar-container').clearQueue();
+                $('.spaceship-cockpit').clearQueue();
+
+
+                $('.sonar-container').fadeIn();
+                $('.spaceship-cockpit').show();
+                // $('.cockpit-closed').removeClass('cockpit-closed').addClass('cockpit-open');
+              }
+            }
+        });
+
+        $('.cockpit-container').click(function() {
+          $('.spaceship-cockpit').addClass('cockpit-zoom');
+          $('.sonar-container').fadeOut();
+        })
+
+        $('.spaceship-container img').mouseenter(function(e) {
+          // show hud and set its position
+          if ($(this).attr('src').includes('-closed')) {
+            var hud = $('#hud');
+            $('#hud-title').text($(this).data('title'));
+            $('#hud-body').text($(this).data('body'));
+
+            hud.stop();
+            hud.clearQueue();
+            hud.fadeIn();
+          }
+        });
+
+        $('.spaceship-container img').mousemove(function(e) {
+          // show hud and set its position
+          if ($(this).attr('src').includes('-closed')) {
+            var hud = $('#hud');
+            var left = e.originalEvent.clientX + 20;
+            var top = e.originalEvent.clientY - hud.height();
+
+            if (hud.css('display') === 'none') {
+              hud.mouseenter(e);
+            }
+
+            hud.css({
+              top: top,
+              left: left
+            });
+          }
+        });
+
+        $('.spaceship-container img').mouseleave(function(e) {
+          // hide hud
+          var hud = $('#hud');
+          hud.stop();
+          hud.clearQueue();
+          hud.fadeOut();
+        });
+
+        $('.spc-si-item').mouseenter(function(e) {
+          var hud = $('#hud');
+          $('#hud-title').text($(this).data('title'));
+          $('#hud-body').text($(this).data('body'));
+
+          hud.stop();
+          hud.clearQueue();
+          hud.fadeIn();
+        });
+
+        $('.spc-si-item').mousemove(function(e) {
+          var hud = $('#hud');
+
+          // console.log(e.originalEvent);
+          var left = e.originalEvent.clientX + 20;
+          var top = e.originalEvent.clientY - hud.height() - 10;
+
+          hud.css({
+            top: top,
+            left: left
+          });
+        });
+
+        $('.spc-si-item').mouseleave(function(e) {
+          // hide hud
+          var hud = $('#hud');
+          hud.stop();
+          hud.clearQueue();
+          hud.fadeOut();
+        });
+
+        $('.spc-si-item').click(function(e) {
+          // toggle spaceship section state then sub item is clicked
+              e.preventDefault();
+              $('[data-spacesec="' + $(e.target).data('spacepart') + '"]').click();
+            });
+      });
+    </script>
+  </body>
+</html>

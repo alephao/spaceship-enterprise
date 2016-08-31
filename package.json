@@ -1,0 +1,17 @@
+{
+  "name": "spc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-3.1.0.min.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss src/scss/style.scss dist/css/style.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.10.2"
+  }
+}
