@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <title>Spaceship</title>
     <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="dist/css/fonts/playfair-display/PlayfairDisplay-Regular.ttf">
+    <link rel="stylesheet" href="dist/css/fonts/playfair-display/PlayfairDisplay-Bold.ttf">
     <link rel="stylesheet" href="dist/css/style.css"/>
   </head>
   <body>
-    <img id="imgpreloader" class="imgpreloader" src="src/img/top-closed.png" />
+    <img id="imgpreloader" class="imgpreloader" src="src/img/spaceship-winresults-closed.png" />
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
@@ -19,49 +21,44 @@
           <div class="sonar-wave"></div>
           <div class="sonar-wave"></div>
         </div>
-        <img class="spaceship-cockpit cockpit-closed" src="src/img/cockpit-module.png" data-spacesec="cockpit" data-title="Cockpit" data-body="Dats a cockpit"/>
+        <img class="spaceship-cockpit" src="src/img/cockpit-module-small.png" data-spacesec="cockpit" data-title="Cockpit" data-body="Dats a cockpit"/>
       </div>
       <img class="spaceship-fire" src="src/img/fire.gif" alt="">
-      <img class="spaceship-top" src="src/img/top-closed.png" data-spacesec="top" data-title="Deliver" data-body="Some cool text"/>
-      <img class="spaceship-mid" src="src/img/middle-closed.png" data-spacesec="middle" data-title="Design" data-body="Dats acoul tekst"/>
-      <img class="spaceship-bot" src="src/img/bottom-closed.png" data-spacesec="bottom" data-title="Explore" data-body="Dats a cool lorem ipsum"/>
+      <div class="spaceship-winresults spaceship-part" data-spacesec="winresults" data-title="Win Results" data-body="You win!">
+        <img src="src/img/spaceship-winresults-closed.png" />
+      </div>
+      <div class="spaceship-deliver spaceship-part" data-spacesec="deliver" data-title="Deliver" data-body="Some cool text">
+        <img src="src/img/spaceship-deliver-closed.png"/>
+      </div>
+      <div class="spaceship-design spaceship-part" data-spacesec="design" data-title="Design" data-body="Dats acoul tekst">
+        <img src="src/img/spaceship-design-closed.png"/>
+      </div>
+      <div class="spaceship-explore spaceship-part" data-spacesec="explore" data-title="Explore" data-body="Dats a cool lorem ipsum">
+        <img src="src/img/spaceship-explore-closed.png"/>
+      </div>
 
-      <div id="spc-si-innovation" class="spc-si-item spc-si-innovation" data-spacepart="top" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
-      <div id="spc-si-innovation2" class="spc-si-item spc-si-innovation2" data-spacepart="top" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
-      <div id="spc-si-technology" class="spc-si-item spc-si-technology" data-spacepart="top" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
-      <div id="spc-si-technology2" class="spc-si-item spc-si-technology2" data-spacepart="top" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
-      <div id="spc-si-people" class="spc-si-item spc-si-people" data-spacepart="top" data-title="Develop the amazing in people" data-body="When you empower people to increase the rate at which they perform only value-adding work, you build their sense of autonomy, mastery and purpose."></div>
-      <div id="spc-si-process" class="spc-si-item spc-si-process" data-spacepart="top" data-title="Engineer seamless processes" data-body="What can you standardise and repeat? Who does it? When? With what aim? Asking these questions reliably is half of the answer—we help close the circle."></div>
+      <div id="spc-si-innovation" class="spc-si-item spc-si-innovation" data-spacepart="winresults" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
+      <div id="spc-si-innovation2" class="spc-si-item spc-si-innovation2" data-spacepart="winresults" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
 
-      <div id="spc-si-culture" class="spc-si-item spc-si-culture" data-spacepart="middle" data-title="Cultivate a winning culture" data-body="When you understand, codify and develop the shared assumptions and behaviours of your team, your people will learn to adapt to the external world and to work together energetically towards a common goal."></div>
-      <div id="spc-si-language" class="spc-si-item spc-si-language" data-spacepart="middle" data-title="Engage purposeful language" data-body="People are meaning-making machines, basing action on verbal, written, visual, aural and bodily cues. How you communicate plans and expectations makes all the difference in the world."></div>
-      <div id="spc-si-organisation" class="spc-si-item spc-si-organisation" data-spacepart="middle" data-title="Cleave to a requisite organisation" data-body="When you establish accountability and expectations at each level of work, your people can take ownership of their roles, with inspiring results for the whole team."></div>
-      <div id="spc-si-resources" class="spc-si-item spc-si-resources" data-spacepart="middle" data-title="Mindfully manage resources" data-body="How will you turn intention into reality, every time—on time and on budget? Here we define the human, material, information and financial resources required to do the work."></div>
-      <div id="spc-si-operations" class="spc-si-item spc-si-operations" data-spacepart="middle" data-title="Design systematic operations" data-body="We apply the Theory of Constraints to the way you work with your resources in and across time and space to achieve your organisational goal."></div>
+      <div id="spc-si-technology" class="spc-si-item spc-si-technology" data-spacepart="deliver" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
+      <div id="spc-si-technology2" class="spc-si-item spc-si-technology2" data-spacepart="deliver" data-title="Profoundly transform with technology" data-body="When you leverage technology for the value-creating parts of your organisation, you reap the rewards of the digital age."></div>
+      <div id="spc-si-people" class="spc-si-item spc-si-people" data-spacepart="deliver" data-title="Develop the amazing in people" data-body="When you empower people to increase the rate at which they perform only value-adding work, you build their sense of autonomy, mastery and purpose."></div>
+      <div id="spc-si-process" class="spc-si-item spc-si-process" data-spacepart="deliver" data-title="Engineer seamless processes" data-body="What can you standardise and repeat? Who does it? When? With what aim? Asking these questions reliably is half of the answer—we help close the circle."></div>
 
-      <div id="spc-si-strategy" class="spc-si-item spc-si-strategy" data-spacepart="bottom" data-title="Strategy for every domain" data-body="How will your idea flow through the engine that powers your organisation? Each domain is affected, whether or not you make intentional changes. Through strategic planning, you align your system in each area and exert positive influences that maximise your return."></div>
-      <div id="spc-si-idea" class="spc-si-item spc-si-idea" data-spacepart="bottom" data-title="Turn your idea into innovation" data-body="Your goal is to create additional value and wealth by applying expertise and leverage to the core domains of your value-creation engine. Success starts with a good idea."></div>
+      <div id="spc-si-culture" class="spc-si-item spc-si-culture" data-spacepart="design" data-title="Cultivate a winning culture" data-body="When you understand, codify and develop the shared assumptions and behaviours of your team, your people will learn to adapt to the external world and to work together energetically towards a common goal."></div>
+      <div id="spc-si-language" class="spc-si-item spc-si-language" data-spacepart="design" data-title="Engage purposeful language" data-body="People are meaning-making machines, basing action on verbal, written, visual, aural and bodily cues. How you communicate plans and expectations makes all the difference in the world."></div>
+      <div id="spc-si-organisation" class="spc-si-item spc-si-organisation" data-spacepart="design" data-title="Cleave to a requisite organisation" data-body="When you establish accountability and expectations at each level of work, your people can take ownership of their roles, with inspiring results for the whole team."></div>
+      <div id="spc-si-resources" class="spc-si-item spc-si-resources" data-spacepart="design" data-title="Mindfully manage resources" data-body="How will you turn intention into reality, every time—on time and on budget? Here we define the human, material, information and financial resources required to do the work."></div>
+      <div id="spc-si-operations" class="spc-si-item spc-si-operations" data-spacepart="design" data-title="Design systematic operations" data-body="We apply the Theory of Constraints to the way you work with your resources in and across time and space to achieve your organisational goal."></div>
 
-      <!-- <div class="firepit">
-        <div class="fire">
-          <div class="flame"></div>
-          <div class="flame"></div>
-          <div class="flame"></div>
-          <div class="flame"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-          <div class="spark"></div>
-        </div>
-      </div> -->
+      <div id="spc-si-strategy" class="spc-si-item spc-si-strategy" data-spacepart="explore" data-title="Strategy for every domain" data-body="How will your idea flow through the engine that powers your organisation? Each domain is affected, whether or not you make intentional changes. Through strategic planning, you align your system in each area and exert positive influences that maximise your return."></div>
+      <div id="spc-si-idea" class="spc-si-item spc-si-idea" data-spacepart="explore" data-title="Turn your idea into innovation" data-body="Your goal is to create additional value and wealth by applying expertise and leverage to the core domains of your value-creation engine. Success starts with a good idea."></div>
+
+    </div>
+
+    <div class="spaceship-header">
+      <h1>Spaceship Enterprise</h1>
+      <h4>Cheguei na praia já ouvindo jazz, itaquatiara tá com uns 9 pés, cuidado com a vala ela é assassina, não adianta bater os pés, vão-se os dedos, ficam os anéis, vão-se os falsos, ficam os fiéis</h4>
     </div>
 
     <div id="hud" class="hud">
@@ -73,12 +70,13 @@
 
     <script type="text/javascript">
       $(function() {
-        $('#imgpreloader').attr('src', 'src/img/top-closed.png');
-        $('#imgpreloader').attr('src', 'src/img/middle-closed.png');
-        $('#imgpreloader').attr('src', 'src/img/bottom-closed.png');
+        $('#imgpreloader').attr('src', 'src/img/spaceship-winresults-open.png');
+        $('#imgpreloader').attr('src', 'src/img/spaceship-deliver-open.png');
+        $('#imgpreloader').attr('src', 'src/img/spaceship-design-open.png');
+        $('#imgpreloader').attr('src', 'src/img/spaceship-explore-open.png');
         $('#imgpreloader').remove();
 
-        $('.spaceship-container > img').click(function(e) {
+        $('.spaceship-container > .spaceship-part > img').click(function(e) {
             var el = $(this);
             var elSrc = el.attr('src');
 
@@ -86,12 +84,12 @@
             if (elSrc.includes('-open')) {
               var newSrc = elSrc.replace('-open', '-closed')
               el.attr('src', newSrc);
-              var spacesec = el.data('spacesec');
+              var spacesec = el.parent().data('spacesec');
               $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
                 display: 'none'
               });
 
-              if (el.hasClass('spaceship-top')) {
+              if (el.parent().hasClass('spaceship-deliver')) {
                 $('.sonar-container').stop();
                 $('.spaceship-cockpit').stop();
                 $('.sonar-container').clearQueue();
@@ -104,17 +102,18 @@
             } else if (elSrc.includes('-closed')) {
               var newSrc = elSrc.replace('-closed', '-open');
               el.attr('src', newSrc);
-              var spacesec = el.data('spacesec');
+              var spacesec = el.parent().data('spacesec');
               $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
                 display: 'block'
               });
 
-              if (el.hasClass('spaceship-top')) {
+              if (el.parent().hasClass('spaceship-deliver')) {
                 $('.sonar-container').stop();
                 $('.spaceship-cockpit').stop();
                 $('.sonar-container').clearQueue();
                 $('.spaceship-cockpit').clearQueue();
 
+                console.log('sjkdfkdsafjkdsafhakdjshfdsa');
 
                 $('.sonar-container').fadeIn();
                 $('.spaceship-cockpit').show();
@@ -132,8 +131,8 @@
           // show hud and set its position
           if ($(this).attr('src').includes('-closed')) {
             var hud = $('#hud');
-            $('#hud-title').text($(this).data('title'));
-            $('#hud-body').text($(this).data('body'));
+            $('#hud-title').text($(this).parent().data('title'));
+            $('#hud-body').text($(this).parent().data('body'));
 
             hud.stop();
             hud.clearQueue();
@@ -201,7 +200,8 @@
         $('.spc-si-item').click(function(e) {
           // toggle spaceship section state then sub item is clicked
               e.preventDefault();
-              $('[data-spacesec="' + $(e.target).data('spacepart') + '"]').click();
+              console.log('.spaceship-' + $(e.target).data('spacepart'));
+              $('.spaceship-' + $(e.target).data('spacepart') + ' img').click();
             });
       });
     </script>

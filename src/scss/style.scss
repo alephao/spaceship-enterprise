@@ -10,33 +10,61 @@ $sonar-circle-color: #fff;
 $sonar-size: 200px;
 
 .spaceship-container {
+  display: flex;
+  flex-direction: column;
   left: 50%;
-  max-width: 10%;
+  max-height: 80%;
   position: absolute;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
 
 
-  .spaceship-top,
-  .spaceship-mid,
-  .spaceship-bot {
-    display: inline-block;
-    margin: 0;
-    width: 100%;
+  .spaceship-winresults,
+  .spaceship-deliver,
+  .spaceship-design,
+  .spaceship-explore {
+    display: flex;
+    justify-content: center;
+
+    img {
+      display: block;
+      object-fit: contain;
+    }
   }
 
-  .spaceship-mid {
-    margin-bottom: -16px;
-    margin-top: -13px;
+  .spaceship-winresults {
+    flex-grow: 120;
+    margin-bottom: -4.5%;
+
+    @media (max-height: 800px) {
+      margin-bottom: -2.8%;
+    }
+
+  }
+
+  .spaceship-deliver {
+    flex-grow: 224;
+    margin-bottom: -2%;
+  }
+
+  .spaceship-design {
+    flex-grow: 250;
+    margin-bottom: -2%;
+  }
+
+  .spaceship-explore {
+    flex-grow: 322;
   }
 
   .spaceship-cockpit {
     cursor: zoom-in;
     display: none;
-    left: 22%;
+    height: 4.8%;
+    left: 22.5%;
     position: absolute;
-    top: 17.5%;
+    top: 18%;
+    transform: rotate(-90deg);
   }
 
   .cockpit-zoom {
@@ -45,20 +73,20 @@ $sonar-size: 200px;
 }
 
 @keyframes cockpitZoom {
-  10% { transform: rotate(90deg) }
-  20% { transform: rotate(90deg) translate(-50px, 100px)  scale(1, 1); }
-  70% { transform: rotate(90deg) translate(200px, 100px) scale(10, 10); }
+  10% { transform: rotate(0deg) }
+  20% { transform: rotate(0deg) translate(-50px, -100px)  scale(1, 1); }
+  70% { transform: rotate(0deg) translate(200px, 100px) scale(10, 10); }
 }
 
 .sonar-container {
   display: none;
-  height: 50px;
-  left: 5%;
+  height: 70px;
+  left: 4%;
   overflow: hidden;
   position: absolute;
-  top: 18%;
-  transform: rotate(-135deg);
-  width: 50px;
+  top: 13%;
+  transform: rotate(-115deg);
+  width: 70px;
 
   .sonar-wave {
     animation-timing-function: ease-out;
@@ -91,6 +119,7 @@ $sonar-size: 200px;
 
 @keyframes sonarAnimation {
   0% { opacity: 1; transform: scale(.1); }
+  80% { opacity: 0.5; transform: scale(0.7); }
   100% { opacity: 0; transform: scale(1); }
 }
 
@@ -199,7 +228,7 @@ $sonar-size: 200px;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 3%;
+  top: 2%;
   width: 15%;
 }
 
@@ -209,7 +238,7 @@ $sonar-size: 200px;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 8%;
+  top: 7%;
   width: 30%;
 }
 
@@ -219,7 +248,7 @@ $sonar-size: 200px;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 14%;
+  top: 13%;
   width: 35%;
 }
 
@@ -229,7 +258,7 @@ $sonar-size: 200px;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 19%;
+  top: 18%;
   width: 25%;
 }
 
@@ -237,7 +266,7 @@ $sonar-size: 200px;
   height: 13%;
   left: 20%;
   position: absolute;
-  top: 24%;
+  top: 23%;
   width: 25%;
 }
 
@@ -245,23 +274,23 @@ $sonar-size: 200px;
   height: 15%;
   position: absolute;
   right: 20%;
-  top: 22%;
+  top: 21%;
   width: 25%;
 }
 
 .spc-si-culture {
   bottom: 40%;
   height: 18%;
+  left: 22%;
   position: absolute;
-  right: 22%;
   width: 10%;
 }
 
 .spc-si-language {
   bottom: 40%;
   height: 19%;
+  left: 33%;
   position: absolute;
-  right: 33%;
   width: 10%;
 }
 
@@ -278,16 +307,16 @@ $sonar-size: 200px;
 .spc-si-resources {
   bottom: 40%;
   height: 19%;
-  left: 33%;
   position: absolute;
+  right: 33%;
   width: 10%;
 }
 
 .spc-si-operations {
   bottom: 40%;
   height: 18%;
-  left: 22%;
   position: absolute;
+  right: 22%;
   width: 10%;
 }
 
@@ -302,7 +331,7 @@ $sonar-size: 200px;
 }
 
 .spc-si-idea {
-  bottom: 19%;
+  bottom: 18%;
   height: 6%;
   left: 0;
   margin: 0 auto;
@@ -313,13 +342,22 @@ $sonar-size: 200px;
 
 .imgpreloader { display: none; height: 0; width: 0;}
 
+.spaceship-header {
+  background-color: #fff;
+  font-family: 'Playfair Display', serif;
+  left: 5%;
+  padding: 0 15px;
+  position: absolute;
+  top: 5%;
+  width: 30%;
+}
 
 // Stars
 
 @function multiple-box-shadow ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  $value: '#{random(2000)}px #{random(2000)}px #fff';
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #fff';
   }
 
   @return unquote($value);
@@ -417,212 +455,10 @@ html {
   to { transform: translateY(0px); }
 }
 
-
 .spaceship-fire {
-  transform: translateX(-50%);
-  position: absolute;;
-  bottom: -7%;
+  bottom: -12%;
+  height: 25%;
   left: 50%;
-  width: 50%;
-  z-index: 0;
-}
-
-// Fire
-
-$fire-orange: rgb(255, 106, 0);
-$fire-red: rgb(255, 34, 0);
-$fire-yellow: rgb(255, 200, 0);
-$fire-blue: rgb(0, 55, 255);
-
-.firepit {
   position: absolute;
-  bottom: 0;
-  left: 47%;
-}
-.fire {
-  position: relative;
-  width: 60px;
-  height: 60px;
-
-  .flame {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: .9;
-    width: 100%;
-    height: 100%;
-    border-bottom-right-radius: 70%;
-    border-bottom-left-radius: 70%;
-    border-top-left-radius: 70%;
-    transform: rotate(-45deg)  skew(-10deg, -10deg);
-    background-color: $fire-red;
-    background-image: linear-gradient(top right, fade-out($fire-red, .1), fade-out($fire-orange, .3));
-    z-index: 1;
-
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-    animation-name: burn-left;
-    animation-duration: 300ms;
-
-    &:nth-of-type(2n){
-      animation-name: burn-right;
-      animation-duration: 400ms;
-    }
-
-    &:nth-of-type(2) {
-      height: 80%;
-      width: 80%;
-      left: 10%;
-      background-color: $fire-orange;
-      background-image: linear-gradient(top right, fade-out($fire-orange, .9), fade-out($fire-yellow, .9));
-      z-index: 2;
-    }
-
-    &:nth-of-type(3) {
-      height: 50%;
-      width: 50%;
-      left: 25%;
-      background-image: linear-gradient(top right, $fire-yellow, white);
-      z-index: 3;
-    }
-
-    &:nth-of-type(4) {
-      height: 30%;
-      width: 30%;
-      left: 35%;
-      background-color: white;
-      background-image: linear-gradient(top right, fade-out(white, .7), fade-out($fire-blue,.1));
-      opacity: 1;
-      z-index: 4;
-    }
-  }
-}
-
-.spark {
-  position: absolute;
-  bottom: 46%;
-  left: 15%;
-  width: 3px;
-  height: 3px;
-  background-color: fade-out($fire-orange,.6);
-
-  animation-name: fly-up-burnout-1;
-  animation-duration: 6s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-delay: .4s;
-
-  &:nth-of-type(2n) {
-    animation-delay: 1s;
-    animation-duration: 8.4s;
-    animation-name: fly-up-burnout-2;
-  }
-
-  &:nth-of-type(3n) {
-    animation-delay: 1.9s;
-    animation-duration: 8s;
-    left: 55%;
-  }
-
-  &:nth-of-type(4n) {
-    animation-delay: 2.6s;
-    animation-duration: 7s;
-    left: 88%;
-  }
-
-  &:nth-of-type(5n) {
-    animation-delay: 1.4s;
-    animation-duration: 7s;
-    left: 22%;
-  }
-
-  &:nth-of-type(6n) {
-    animation-delay: 3.2s;
-    left: 61%;
-  }
-
-  &:nth-of-type(7n) {
-    animation-delay: .8s;
-    animation-duration: 5s;
-    left: 64%;
-  }
-
-  &:nth-of-type(8n) {
-    animation-delay: 5s;
-    left: 19%;
-  }
-
-  &:nth-of-type(9n) {
-    animation-delay: 4s;
-    animation-duration: 6.8s;
-    left: 22%;
-  }
-
-  &:nth-of-type(10n) {
-    animation-delay: 5.2s;
-    left: 61%;
-  }
-
-  &:nth-of-type(11n) {
-    animation-delay: 3.5s;
-    animation-duration: 8s;
-    left: 81%;
-  }
-
-  &:nth-of-type(12n) {
-    animation-delay: 2s;
-    left: 85%;
-  }
-}
-
-@keyframes burn-left {
-  0%, 100% {transform: rotate(-45deg)  skew(-10deg, -10deg) scale(1);}
-  30%, 60% {transform: rotate(-44deg)  skew(-12deg, -12deg) scale(1.01);}
-}
-
-@keyframes burn-right {
-  0%, 100% {transform: rotate(-45deg)  skew(-10deg, -10deg) scale(1);}
-  30%, 60% {transform: rotate(-46deg)  skew(-6deg, -6deg) scale(1.01);}
-}
-
-@keyframes fly-up-burnout-1 {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-
-  33% {
-    transform: translate(12px, -70px);
-  }
-
-  66% {
-    opacity: .6;
-    transform: translate(0, -140px);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(6px, -200px);
-  }
-}
-
-@keyframes fly-up-burnout-2 {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(-10px, -80px);
-  }
-
-  80% {
-    opacity: .6;
-    transform: translate(-4px, -140px);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(-6px, -160px);
-  }
+  transform: translateX(-52%);
 }
