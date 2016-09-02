@@ -54,28 +54,56 @@ $sonar-size: 200px;
   }
 
   .spaceship-explore {
-    flex-grow: 322;
+    flex-grow: 315;
   }
 
   .spaceship-cockpit {
     cursor: zoom-in;
     display: none;
     height: 4.8%;
-    left: 22.5%;
+    left: 25.8%;
     position: absolute;
-    top: 18%;
+    top: 17.8%;
     transform: rotate(-90deg);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .cockpit-fire {
+    height: 120%;
+    left: -60%;
+    opacity: 0;
+    position: absolute;
+    top: -1%;
+    transform: rotate(90deg);
   }
 
   .cockpit-zoom {
     animation: cockpitZoom 5s 0s;
+    animation-fill-mode: forwards;
+    // transform: rotate(0deg) translate(+500%, +500%) scale(5, 5);
+  }
+
+  .cockpit-fire-anim {
+    animation: cockpitFire 5s 0s;
+    animation-fill-mode: forwards;
   }
 }
 
 @keyframes cockpitZoom {
-  10% { transform: rotate(0deg) }
-  20% { transform: rotate(0deg) translate(-50px, -100px)  scale(1, 1); }
-  70% { transform: rotate(0deg) translate(200px, 100px) scale(10, 10); }
+  0% { transform: rotate(-90deg) }
+  50% { transform: rotate(0deg) translate(-500%, +500%) }
+  90% { transform: rotate(0deg) translate(+500%, +500%) scale(5, 5); }
+  100% { transform: rotate(0deg) translate(+10000%, +500%) scale(5, 5); }
+}
+
+@keyframes cockpitFire {
+  0% { opacity: 0; }
+  45% { opacity: 0;}
+  55% { opacity: 1;}
+  100% { opacity: 1;}
 }
 
 .sonar-container {
