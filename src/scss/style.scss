@@ -19,7 +19,6 @@ $sonar-size: 200px;
   top: 50%;
   transform: translate(-50%, -50%);
 
-
   .spaceship-winresults,
   .spaceship-deliver,
   .spaceship-design,
@@ -65,6 +64,54 @@ $sonar-size: 200px;
     position: absolute;
     top: 17.8%;
     transform: rotate(-90deg);
+
+    @media (max-height: 420px) {
+      height: 4.8%;
+      left: 37.5%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 421px) and (max-height: 535px) {
+      height: 4.8%;
+      left: 36.5%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 536px) and (max-height: 581px) {
+      height: 4.8%;
+      left: 34.5%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 582px) and (max-height: 680px) {
+      height: 4.8%;
+      left: 32.5%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 681px) and (max-height: 750px) {
+      height: 4.8%;
+      left: 30%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 751px) and (max-height: 850px) {
+      height: 5%;
+      left: 28.8%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 851px) and (max-height: 900px) {
+      height: 4.8%;
+      left: 26.5%;
+      top: 17.8%;
+    }
+
+    @media (min-height: 901px) {
+      height: 4.8%;
+      left: 23.8%;
+      top: 17.8%;
+    }
 
     img {
       height: 100%;
