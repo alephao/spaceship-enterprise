@@ -72,7 +72,7 @@ $sonar-size: 200px;
   }
 
   .cockpit-fire {
-    height: 120%;
+    height: 20%;
     left: -60%;
     opacity: 0;
     position: absolute;
@@ -86,25 +86,42 @@ $sonar-size: 200px;
     // transform: rotate(0deg) translate(+500%, +500%) scale(5, 5);
   }
 
-  .cockpit-fire-anim {
-    animation: cockpitFire 5s 0s;
+  .cockpit-fire-zoom {
+    animation: cockpitFireZoom 5s 0s;
+    animation-fill-mode: forwards;
+  }
+
+  .cockpit-fire-back {
+    animation: cockpitBack 2s 0s;
     animation-fill-mode: forwards;
   }
 }
 
 @keyframes cockpitZoom {
-  0% { transform: rotate(-90deg) }
-  50% { transform: rotate(0deg) translate(-500%, +500%) }
-  90% { transform: rotate(0deg) translate(+500%, +500%) scale(5, 5); }
-  100% { transform: rotate(0deg) translate(+10000%, +500%) scale(5, 5); }
+  0% { transform: rotate(-90deg); }
+  50% { left: -60%; top: 40%; transform: rotate(0deg); }
+  85% { height: 20%; left: 70%; top: 40%; transform: rotate(0deg); }
+  100% { height: 20%; left: 270%; top: 40%; transform: rotate(0deg); }
 }
 
-@keyframes cockpitFire {
+@keyframes cockpitFireZoom {
   0% { opacity: 0; }
-  45% { opacity: 0;}
-  55% { opacity: 1;}
-  100% { opacity: 1;}
+  48% { left: -100%; opacity: 0; top: 39%; }
+  49% { left: -100%; opacity: 0.5; top: 39%; }
+  50% { left: -100%; opacity: 1; top: 39%; }
+  85% { left: 29.5%; opacity: 1; top: 40%; }
+  100% { left: 229.5%; opacity: 1; top: 40%; }
 }
+
+@keyframes cockpitBack {
+  0% { transform: rotate(0deg) translate(+10000%, +500%) scale(5, 5); }
+  100% { transform: rotate(0deg) translate(0, 0) scale(5, 5); }
+}
+
+// @keyframes cockpitFloating {
+//   0% { transform: rotate(0deg) translate(+10000%, +500%) scale(5, 5); }
+//   100% { transform: rotate(0deg) translate(0, 0) scale(5, 5); }
+// }
 
 .sonar-container {
   display: none;
@@ -373,10 +390,20 @@ $sonar-size: 200px;
 .spaceship-header {
   background-color: #fff;
   font-family: 'Playfair Display', serif;
-  left: 5%;
   padding: 0 15px;
   position: absolute;
-  top: 5%;
+  right: 4%;
+  top: 4%;
+  width: 30%;
+}
+
+.spaceship-zoom {
+  background-color: #fff;
+  font-family: 'Playfair Display', serif;
+  padding: 0 15px;
+  position: absolute;
+  right: 4%;
+  top: 40%;
   width: 30%;
 }
 

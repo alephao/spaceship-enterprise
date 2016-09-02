@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <title>Spaceship</title>
     <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="dist/css/fonts/playfair-display/PlayfairDisplay-Regular.ttf">
     <link rel="stylesheet" href="dist/css/fonts/playfair-display/PlayfairDisplay-Bold.ttf">
+    <link rel="stylesheet" href="dist/css/magnifier.css"/>
     <link rel="stylesheet" href="dist/css/style.css"/>
   </head>
   <body>
+
+
     <img id="imgpreloader" class="imgpreloader" src="src/img/spaceship-winresults-closed.png" />
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -20,10 +24,10 @@
         <div class="sonar-wave"></div>
         <div class="sonar-wave"></div>
       </div>
-      <div class="spaceship-cockpit">
-        <img src="src/img/cockpit-module-small.png" data-spacesec="cockpit" data-title="Cockpit" data-body="Dats a cockpit"/>
-        <img class="cockpit-fire" src="src/img/fire.gif" alt="">
-      </div>
+
+      <img class="spaceship-cockpit spc-si-item" src="src/img/cockpit-module-small.png" data-spacesec="cockpit" data-title="Cockpit" data-body="Click to access the cockpit"/>
+      <img class="cockpit-fire" src="src/img/fire.gif" alt=""/>
+
       <img class="spaceship-fire" src="src/img/fire.gif" alt="">
       <div class="spaceship-winresults spaceship-part" data-spacesec="winresults" data-title="Win Results" data-body="You win!">
         <img src="src/img/spaceship-winresults-closed.png" />
@@ -34,7 +38,7 @@
       <div class="spaceship-design spaceship-part" data-spacesec="design" data-title="Design" data-body="Dats acoul tekst">
         <img src="src/img/spaceship-design-closed.png"/>
       </div>
-      <div class="spaceship-explore spaceship-part" data-spacesec="explore" data-title="Explore" data-body="Dats a cool lorem ipsum">
+      <div class="spaceship-explore spaceship-part magnifier-thumb-wrapper" data-spacesec="explore" data-title="Explore" data-body="Dats a cool lorem ipsum">
         <img src="src/img/spaceship-explore-closed.png"/>
       </div>
 
@@ -114,8 +118,6 @@
                 $('.sonar-container').clearQueue();
                 $('.spaceship-cockpit').clearQueue();
 
-                console.log('sjkdfkdsafjkdsafhakdjshfdsa');
-
                 $('.sonar-container').fadeIn();
                 $('.spaceship-cockpit').show();
                 // $('.cockpit-closed').removeClass('cockpit-closed').addClass('cockpit-open');
@@ -124,12 +126,17 @@
         });
 
         $('.spaceship-cockpit').click(function() {
-          $('.spaceship-cockpit').addClass('cockpit-zoom');
-          $('.cockpit-fire').addClass('cockpit-fire-anim');
-          $('.sonar-container').fadeOut();
+          var cockpit = $(this);
+          var cockpitFire = $('.cockpit-fire');
 
-          // setTimeout(function(){ $('.spaceship-cockpit').removeClass('cockpit-zoom'); }, 5000);
-        })
+          $('.sonar-container').fadeOut();
+          cockpit.addClass('cockpit-zoom');
+          cockpitFire.addClass('cockpit-fire-zoom');
+
+          setTimeout(function(){
+            cockpit.attr('src', 'src/img/cockpit-module-big.png')
+          }, 1200);
+        });
 
         $('.spaceship-container img').mouseenter(function(e) {
           // show hud and set its position
@@ -149,7 +156,8 @@
           if ($(this).attr('src').includes('-closed')) {
             var hud = $('#hud');
             var left = e.originalEvent.clientX + 20;
-            var top = e.originalEvent.clientY - hud.height();
+            var top = e.originalEvent.clientY;
+            top = e.originalEvent.clientY > $('html').height() / 2 ? top - hud.height() : top;
 
             if (hud.css('display') === 'none') {
               hud.mouseenter(e);
@@ -183,9 +191,9 @@
         $('.spc-si-item').mousemove(function(e) {
           var hud = $('#hud');
 
-          // console.log(e.originalEvent);
           var left = e.originalEvent.clientX + 20;
-          var top = e.originalEvent.clientY - hud.height() - 10;
+          var top = e.originalEvent.clientY;
+          top = e.originalEvent.clientY > $('html').height() / 2 ? top - hud.height() : top;
 
           hud.css({
             top: top,
@@ -204,7 +212,6 @@
         $('.spc-si-item').click(function(e) {
           // toggle spaceship section state then sub item is clicked
               e.preventDefault();
-              console.log('.spaceship-' + $(e.target).data('spacepart'));
               $('.spaceship-' + $(e.target).data('spacepart') + ' img').click();
             });
       });
