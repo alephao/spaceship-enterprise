@@ -139,7 +139,17 @@
 
           setTimeout(function(){
             cockpit.attr('src', 'src/img/cockpit-module-big.png')
-          }, 1200);
+          }, 1000);
+
+          setTimeout(function(){
+            cockpit.attr('src', 'src/img/cockpit-module-small.png')
+            $('.sonar-container').fadeIn();
+          }, 4900);
+
+          setTimeout(function(){
+            cockpit.removeClass('cockpit-zoom');
+            cockpitFire.removeClass('cockpit-fire-zoom');
+          }, 5000);
         });
 
         $('.spaceship-container img').mouseenter(function(e) {
