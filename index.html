@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="dist/css/style.css"/>
   </head>
   <body>
-    <img id="imgpreloader" class="imgpreloader" src="src/img/spaceship-winresults-closed.png" />
+    <img class="imgpreloader" src="src/img/spaceship-winresults-closed.png" />
+    <img class="imgpreloader" src="src/img/spaceship-deliver-closed.png" />
+    <img class="imgpreloader" src="src/img/spaceship-design-closed.png" />
+    <img class="imgpreloader" src="src/img/spaceship-explore-closed.png" />
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
@@ -76,11 +79,6 @@
 
     <script type="text/javascript">
       $(function() {
-        $('#imgpreloader').attr('src', 'src/img/spaceship-winresults-open.png');
-        $('#imgpreloader').attr('src', 'src/img/spaceship-deliver-open.png');
-        $('#imgpreloader').attr('src', 'src/img/spaceship-design-open.png');
-        $('#imgpreloader').attr('src', 'src/img/spaceship-explore-open.png');
-        $('#imgpreloader').remove();
 
         $('.spaceship-container > .spaceship-part > img').click(function(e) {
             var el = $(this).parent();
@@ -139,7 +137,7 @@
           }, 1000);
 
           setTimeout(function(){
-            window.location.assign('https://ensemblenew.wpengine.com/EnsembleWay/Services');
+            // window.location.assign('https://ensemblenew.wpengine.com/EnsembleWay/Services');
             cockpit.attr('src', 'src/img/cockpit-module-small.png')
             $('.sonar-container').fadeIn();
           }, 4900);
