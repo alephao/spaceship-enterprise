@@ -12,48 +12,58 @@ $sonar-size: 200px;
 .spaceship-container {
   display: flex;
   flex-direction: column;
+  height: 80%;
   left: 50%;
   max-height: 80%;
   position: absolute;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 600px;
 
   .spaceship-winresults,
   .spaceship-deliver,
   .spaceship-design,
   .spaceship-explore {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
     justify-content: center;
+    position: relative;
 
     img {
-      display: block;
-      object-fit: contain;
+      background-color: rgba(255, 0, 0, .5);
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
     }
   }
 
   .spaceship-winresults {
-    flex-grow: 120;
-    margin-bottom: -4.5%;
-
-    @media (max-height: 800px) {
-      margin-bottom: -2.8%;
-    }
-
+    background-image: url('../../src/img/spaceship-winresults-closed.png');
+    flex-grow: 105;
   }
 
   .spaceship-deliver {
-    flex-grow: 224;
-    margin-bottom: -2%;
+    background-image: url('../../src/img/spaceship-deliver-closed.png');
+    flex-grow: 213;
   }
 
   .spaceship-design {
-    flex-grow: 250;
-    margin-bottom: -2%;
+    background-image: url('../../src/img/spaceship-design-closed.png');
+    flex-grow: 241;
   }
 
   .spaceship-explore {
-    flex-grow: 315;
+    background-image: url('../../src/img/spaceship-explore-closed.png');
+    flex-grow: 314;
+
+    img {
+      height: 70%;
+    }
   }
 
   .spaceship-cockpit {
@@ -284,17 +294,6 @@ $sonar-size: 200px;
 //   width: 100%;
 // }
 
-.the-space {
-  background-color: #303;
-  height: 110vh;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 110vw;
-
-  z-index: 100;
-}
-
 .hud {
   background-color: $hud-bgc;
   color: $hud-text-color;
@@ -310,6 +309,7 @@ $sonar-size: 200px;
 
 .spc-si-item {
   // background-color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
   display: none;
 }
 

@@ -28,16 +28,16 @@
 
       <img class="spaceship-fire" src="src/img/fire.gif" alt="">
       <div class="spaceship-winresults spaceship-part" data-spacesec="winresults" data-title="Win Results" data-body="Congratulations! Your idea has become an innovation.">
-        <img src="src/img/spaceship-winresults-closed.png" />
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
       </div>
       <div class="spaceship-deliver spaceship-part" data-spacesec="deliver" data-title="Deliver" data-body="Time to hit peak performance.">
-        <img src="src/img/spaceship-deliver-closed.png"/>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
       </div>
       <div class="spaceship-design spaceship-part" data-spacesec="design" data-title="Design" data-body="Flow your idea through your whole system.">
-        <img src="src/img/spaceship-design-closed.png"/>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
       </div>
       <div class="spaceship-explore spaceship-part magnifier-thumb-wrapper" data-spacesec="explore" data-title="Explore" data-body="Start with the fuel to power your engine.">
-        <img src="src/img/spaceship-explore-closed.png"/>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
       </div>
 
       <div id="spc-si-innovation" class="spc-si-item spc-si-innovation" data-spacepart="winresults" data-title="Win results" data-body="Your idea only becomes an innovation when starts creating value. At that point, you unleash new power to boost your organisation’s throughput."></div>
@@ -84,14 +84,14 @@
         $('#imgpreloader').remove();
 
         $('.spaceship-container > .spaceship-part > img').click(function(e) {
-            var el = $(this);
-            var elSrc = el.attr('src');
+            var el = $(this).parent();
+            var elBgImg = el.css('background-image');
 
             // if image have -open in its src, toggle to -closed and vice versa
-            if (elSrc.includes('-open')) {
-              var newSrc = elSrc.replace('-open', '-closed')
-              el.attr('src', newSrc);
-              var spacesec = el.parent().data('spacesec');
+            if (elBgImg.includes('-open')) {
+              var newBgImg = elBgImg.replace('-open', '-closed')
+              el.css('background-image', newBgImg);
+              var spacesec = el.data('spacesec');
               $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
                 display: 'none'
               });
@@ -106,9 +106,9 @@
                 $('.spaceship-cockpit').hide();
                 // $('.cockpit-open').removeClass('cockpit-open').addClass('cockpit-closed');
               }
-            } else if (elSrc.includes('-closed')) {
-              var newSrc = elSrc.replace('-closed', '-open');
-              el.attr('src', newSrc);
+            } else if (elBgImg.includes('-closed')) {
+              var newBgImg = elBgImg.replace('-closed', '-open');
+              el.css('background-image', newBgImg);
               var spacesec = el.parent().data('spacesec');
               $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
                 display: 'block'
@@ -140,6 +140,7 @@
           }, 1000);
 
           setTimeout(function(){
+            window.location.assign('https://ensemblenew.wpengine.com/EnsembleWay/Services');
             cockpit.attr('src', 'src/img/cockpit-module-small.png')
             $('.sonar-container').fadeIn();
           }, 4900);
