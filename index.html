@@ -88,7 +88,7 @@
             var elBgImg = el.css('background-image');
 
             // if image have -open in its src, toggle to -closed and vice versa
-            if (elBgImg.includes('-open')) {
+            if (elBgImg.indexOf('-open') >= 0) {
               var newBgImg = elBgImg.replace('-open', '-closed')
               el.css('background-image', newBgImg);
               var spacesec = el.data('spacesec');
@@ -106,7 +106,7 @@
                 $('.spaceship-cockpit').hide();
                 // $('.cockpit-open').removeClass('cockpit-open').addClass('cockpit-closed');
               }
-            } else if (elBgImg.includes('-closed')) {
+            } else if (elBgImg.indexOf('-closed') >= 0) {
               var newBgImg = elBgImg.replace('-closed', '-open');
               el.css('background-image', newBgImg);
               var spacesec = el.parent().data('spacesec');
@@ -153,7 +153,7 @@
 
         $('.spaceship-container img').mouseenter(function(e) {
           // show hud and set its position
-          if ($(this).attr('src').includes('-closed')) {
+          if ($(this).attr('src').indexOf('-closed') >= 0) {
             var hud = $('#hud');
             $('#hud-title').text($(this).parent().data('title'));
             $('#hud-body').text($(this).parent().data('body'));
@@ -166,7 +166,7 @@
 
         $('.spaceship-container img').mousemove(function(e) {
           // show hud and set its position
-          if ($(this).attr('src').includes('-closed')) {
+          if ($(this).attr('src').indexOf('-closed') >= 0) {
             var hud = $('#hud');
             var left = e.originalEvent.clientX + 20;
             var top = e.originalEvent.clientY;
