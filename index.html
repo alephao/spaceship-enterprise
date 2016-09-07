@@ -16,16 +16,6 @@
     <div id="stars2"></div>
     <div id="stars3"></div>
     <div class="spaceship-container">
-      <div id="sonar-container" class="sonar-container">
-        <div class="sonar-wave"></div>
-        <div class="sonar-wave"></div>
-        <div class="sonar-wave"></div>
-        <div class="sonar-wave"></div>
-      </div>
-
-      <img class="spaceship-cockpit spc-si-item" src="src/img/cockpit-module-small.png" data-spacesec="cockpit" data-title="VMO module" data-body="To see our services, take command of the cockpit."/>
-      <img class="cockpit-fire" src="src/img/fire.gif" alt=""/>
-
       <img class="spaceship-fire" src="src/img/fire.gif" alt="">
       <div class="spaceship-winresults spaceship-part" data-spacesec="winresults" data-title="Win Results" data-body="Congratulations! Your idea has become an innovation.">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
@@ -57,6 +47,15 @@
       <div id="spc-si-strategy" class="spc-si-item spc-si-strategy" data-spacepart="explore" data-title="Strategy for every domain" data-body="How will your idea flow through the engine that powers your organisation? Each domain is affected, whether or not you make intentional changes. Through strategic planning, you align your system in each area and exert positive influences that maximise your return."></div>
       <div id="spc-si-idea" class="spc-si-item spc-si-idea" data-spacepart="explore" data-title="Turn your idea into innovation" data-body="Your goal is to create additional value and wealth by applying expertise and leverage to the core domains of your value-creation engine. Success starts with a good idea."></div>
 
+      <img class="spaceship-cockpit spc-si-item" src="src/img/cockpit-module-small.png" data-spacesec="cockpit" data-title="VMO module" data-body="To see our services, take command of the cockpit."/>
+      <img class="cockpit-fire" src="src/img/fire.gif" alt=""/>
+
+      <div id="sonar-container" class="sonar-container">
+        <div class="sonar-wave"></div>
+        <div class="sonar-wave"></div>
+        <div class="sonar-wave"></div>
+        <div class="sonar-wave"></div>
+      </div>
     </div>
 
     <div class="spaceship-header">
@@ -96,7 +95,7 @@
                 display: 'none'
               });
 
-              if (el.parent().hasClass('spaceship-deliver')) {
+              if (el.hasClass('spaceship-deliver')) {
                 $('.sonar-container').stop();
                 $('.spaceship-cockpit').stop();
                 $('.sonar-container').clearQueue();
@@ -109,12 +108,12 @@
             } else if (elBgImg.indexOf('-closed') >= 0) {
               var newBgImg = elBgImg.replace('-closed', '-open');
               el.css('background-image', newBgImg);
-              var spacesec = el.parent().data('spacesec');
+              var spacesec = el.data('spacesec');
               $('.spc-si-item[data-spacepart="' + spacesec +'"]').css({
                 display: 'block'
               });
 
-              if (el.parent().hasClass('spaceship-deliver')) {
+              if (el.hasClass('spaceship-deliver')) {
                 $('.sonar-container').stop();
                 $('.spaceship-cockpit').stop();
                 $('.sonar-container').clearQueue();
@@ -153,7 +152,7 @@
 
         $('.spaceship-container img').mouseenter(function(e) {
           // show hud and set its position
-          if ($(this).attr('src').indexOf('-closed') >= 0) {
+          if ($(this).parent().css('background-image').indexOf('-closed') >= 0) {
             var hud = $('#hud');
             $('#hud-title').text($(this).parent().data('title'));
             $('#hud-body').text($(this).parent().data('body'));
@@ -166,7 +165,7 @@
 
         $('.spaceship-container img').mousemove(function(e) {
           // show hud and set its position
-          if ($(this).attr('src').indexOf('-closed') >= 0) {
+          if ($(this).parent().css('background-image').indexOf('-closed') >= 0) {
             var hud = $('#hud');
             var left = e.originalEvent.clientX + 20;
             var top = e.originalEvent.clientY;

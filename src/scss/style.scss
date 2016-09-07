@@ -33,7 +33,7 @@ $sonar-size: 200px;
     position: relative;
 
     img {
-      background-color: rgba(255, 0, 0, .5);
+      // background-color: rgba(255, 0, 0, .5);
       height: 100%;
       left: 50%;
       position: absolute;
@@ -69,59 +69,11 @@ $sonar-size: 200px;
   .spaceship-cockpit {
     cursor: zoom-in;
     display: none;
-    height: 4.8%;
-    left: 25.8%;
+    height: 3.8vh;
     position: absolute;
+    right: 50%;
     top: 17.8%;
-    transform: rotate(-90deg);
-
-    @media (max-height: 420px) {
-      height: 4.8%;
-      left: 37.5%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 421px) and (max-height: 535px) {
-      height: 4.8%;
-      left: 36.5%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 536px) and (max-height: 581px) {
-      height: 4.8%;
-      left: 34.5%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 582px) and (max-height: 680px) {
-      height: 4.8%;
-      left: 32.5%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 681px) and (max-height: 750px) {
-      height: 4.8%;
-      left: 30%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 751px) and (max-height: 850px) {
-      height: 5%;
-      left: 28.8%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 851px) and (max-height: 900px) {
-      height: 4.8%;
-      left: 26.5%;
-      top: 17.8%;
-    }
-
-    @media (min-height: 901px) {
-      height: 4.8%;
-      left: 23.8%;
-      top: 17.8%;
-    }
+    transform: rotate(-90deg) translateY(-75%);
 
     img {
       height: 100%;
@@ -164,7 +116,7 @@ $sonar-size: 200px;
 @keyframes cockpitFireZoom {
   0% { opacity: 0; }
   48% { left: -100%; opacity: 0; top: 39%; }
-  49% { left: -100%; opacity: 0.5; top: 39%; }
+  49% { left: -100%; opacity: .5; top: 39%; }
   50% { left: -100%; opacity: 1; top: 39%; }
   100% { left: 329.5%; opacity: 1; top: 40%; }
 }
@@ -181,13 +133,13 @@ $sonar-size: 200px;
 
 .sonar-container {
   display: none;
-  height: 70px;
-  left: 4%;
+  height: 6vh;
+  left: 50%;
   overflow: hidden;
   position: absolute;
-  top: 13%;
-  transform: rotate(-115deg);
-  width: 70px;
+  top: 15%;
+  transform: rotate(-115deg) translate(110%, -210%);
+  width: 6vh;
 
   .sonar-wave {
     animation-timing-function: ease-out;
@@ -320,7 +272,7 @@ $sonar-size: 200px;
   position: absolute;
   right: 0;
   top: 2%;
-  width: 15%;
+  width: 5vh;
 }
 
 .spc-si-innovation2 {
@@ -330,7 +282,7 @@ $sonar-size: 200px;
   position: absolute;
   right: 0;
   top: 7%;
-  width: 30%;
+  width: 10vh;
 }
 
 .spc-si-technology {
@@ -340,7 +292,7 @@ $sonar-size: 200px;
   position: absolute;
   right: 0;
   top: 13%;
-  width: 35%;
+  width: 11vh;
 }
 
 .spc-si-technology2 {
@@ -350,75 +302,67 @@ $sonar-size: 200px;
   position: absolute;
   right: 0;
   top: 18%;
-  width: 25%;
+  width: 6vh;
 }
 
 .spc-si-people {
   height: 13%;
-  left: 20%;
+  left: 50%;
   position: absolute;
   top: 23%;
-  width: 25%;
+  transform: translateX(-110%);
+  width: 9vh;
 }
 
 .spc-si-process {
   height: 15%;
   position: absolute;
-  right: 20%;
+  right: 50%;
   top: 21%;
-  width: 25%;
+  transform: translateX(110%);
+  width: 9vh;
+}
+
+.spc-si-culture,
+.spc-si-language,
+.spc-si-organisation,
+.spc-si-resources,
+.spc-si-operations {
+  bottom: 40%;
+  height: 19%;
+  position: absolute;
+  right: 50%;
+  width: 3vh;
 }
 
 .spc-si-culture {
-  bottom: 40%;
-  height: 18%;
-  left: 22%;
-  position: absolute;
-  width: 10%;
+  transform: translateX(-180%);
 }
 
 .spc-si-language {
-  bottom: 40%;
-  height: 19%;
-  left: 33%;
-  position: absolute;
-  width: 10%;
+  transform: translateX(-70%);
 }
 
 .spc-si-organisation {
-  bottom: 40%;
-  height: 19%;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  width: 10%;
+  transform: translateX(50%);
 }
 
 .spc-si-resources {
-  bottom: 40%;
-  height: 19%;
-  position: absolute;
-  right: 33%;
-  width: 10%;
+  transform: translateX(160%);
 }
 
 .spc-si-operations {
-  bottom: 40%;
-  height: 18%;
-  position: absolute;
-  right: 22%;
-  width: 10%;
+  transform: translateX(270%);
 }
 
 .spc-si-strategy {
-  bottom: 26%;
+  bottom: 25%;
   height: 10%;
   left: 0;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  width: 30%;
+  width: 10vh;
 }
 
 .spc-si-idea {
@@ -428,7 +372,7 @@ $sonar-size: 200px;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  width: 30%;
+  width: 8vh;
 }
 
 .imgpreloader { display: none; height: 0; width: 0;}
